@@ -59,14 +59,13 @@ Node<T>* Tree<T>::add(Node<T> *node, T value)
 	}
 	if (value < node->data)
 	{
-		add(node->LeftChild.get(), value);
+		node->LeftChild = std::move(add(node->LeftChild.get(), value));
 	}
 	if (value > node->data)
 	{
 		add(node->RightChild.get(), value);
 	}
-	else
-	{
+
 		if (IsRed(node->RightChild.get()))
 		{
 			RotateLeft(node);
@@ -77,7 +76,7 @@ Node<T>* Tree<T>::add(Node<T> *node, T value)
 		}
 
 		return node;
-	}
+
 
 
 }
@@ -226,7 +225,7 @@ Node<T>* Tree<T>::GetMinimum(Node<T>* node)
 template <typename T>
 Node<T>* Tree<T>::Fixup(Node<T>* node)
 {
-	if (IsRed(node->RightChild.get()))
+	/*if (IsRed(node->RightChild.get()))
 	{
 		node = RotateLeft(node);
 	}
@@ -247,5 +246,5 @@ Node<T>* Tree<T>::Fixup(Node<T>* node)
 		}
 	}
 
-	return node;
+	return node;*/
 }

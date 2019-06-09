@@ -18,7 +18,7 @@ int main()
 
 	for (int i = 0; i < 23; i++)
 	{
-		tree.Add(getRandomNum(0, 100));
+		//tree.Add(getRandomNum(0, 100));
 	}
 
 	return 0;
